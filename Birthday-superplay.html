@@ -50,14 +50,14 @@
         <h2> <img src="https://superplaycounts.github.io/img/img1.png" width="120" height="120">SUPERPLAYCOUNTS</h2>
         <hr>
          <div class="center">
-             <h1>До нового года осталось</h1>
+             <h1>До Дня рождение Супер Плея осталось</h1>
              <hr>
              <p1 id="timer"></p1>
          </div>
      </div>
      <script>
          // Устанавливаем время для обратного отчета
-         var countDownDate = new Date("Jan 1, 2022 00:00:00").getTime();
+         var countDownDate = new Date("Dec 18, 2021 00:00:00").getTime();
 
          // Обновляем таймер каждую секунду
          var countDownfunction = setInterval(function () {
@@ -81,7 +81,7 @@
             // Что делать, когда отсчет будет равен 0
             if (distance < 0) {
                 clearInterval(countDownfunction);
-                document.getElementById("timer").innerHTML = "С новым годом!";
+                document.getElementById("timer").innerHTML = "МНЕ 14 ЛЕТ!";
             }
          }, 1000)
          
