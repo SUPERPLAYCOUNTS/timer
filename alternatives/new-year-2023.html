@@ -2,89 +2,134 @@
 <html>
  <head>
   <meta charset="utf-8">
-  <title>Timer new year 2023</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer birthday super play</title>
   <style>
-      body, html {
-          height: 100%;
-          margin: 0;
-      }
-
-      .container {
-          background: url("https://img5.goodfon.ru/original/1920x1080/8/69/elka-christmas-wood-fir-tree-vetki-eli-fon-background-doski.jpg");
-          height: 100%;
-          background-position: center;
-          background-size: cover;
-          position: relative;
-          color: white;
-      }
-
-      .center {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          text-align: center;
-      }
-
-      h1, p1 {
-          font-family: sans-serif;
-          font-weight: lighter;
-      }
-
-      h1 {
-          font-size: 50px;
-      }
-
-      p1 {
-          font-size: 30px;
-          letter-spacing: 5px;
-      }
-      h2 {
-          font-size: 30px;
-      }
+   body
+{
+    margin: 0;
+    padding: 0;
+}
+#home
+{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    background:url("https://img5.goodfon.ru/original/1920x1080/8/69/elka-christmas-wood-fir-tree-vetki-eli-fon-background-doski.jpg");
+    background-size:100% 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#heading-style
+{
+    font-size: 5vw;
+    margin-bottom: 10vh;
+}
+#time
+{
+    display: flex;
+    color: rgb(155, 143, 143);
+    font-size: 5vh;
+    width: 85vw;
+    justify-content: space-around;    
+}
+#clock
+{
+    display: flex;
+    color:rgba(255,255,255,0.7);
+    font-size: 12vw;
+    font-family: 'Courier New', Courier, monospace;
+    height: 20vh;
+    margin-top: 5vh;
+    justify-content: space-around;
+    line-height:21vh;
+    overflow: hidden;
+    position: relative;
+}
+.move
+{
+    animation: move ease-in-out 1s infinite;
+}
+@keyframes move{
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(-25vh);
+    }
+}
   </style>
   <link rel="icon" href="https://superplaycounts.github.io/img/icon-sites.png">
  </head>
  <body>
      <div class="container">
-        <h2> <img src="https://superplaycounts.github.io/img/icon.png" width="120" height="120">SUPERPLAYCOUNTS</h2>
-        <hr>
-         <div class="center">
-             <h1>До нового года осталось</h1>
-             <hr>
-             <p1 id="timer"></p1>
-         </div>
+         <div id="home">
+        <h1 id="heading-style">До Дня рождение Супер Плея осталось</h1>
+        <div id="time">
+            <div class="frame">Days</div>
+            <div class="frame">Hours</div>
+            <div class="frame">Mins</div>
+            <div class="frame">Sec</div>
+        </div>
+        <div id="clock">
+            <div class="number"><div>0</div></div>
+            <div class="number"><div>0</div></div>
+            <div class="number"><div>:</div></div>
+            <div class="number"><div>0</div></div>
+            <div class="number"><div>0</div></div>
+            <div class="number"><div>:</div></div>
+            <div class="number"><div>0</div></div>
+            <div class="number"><div>0</div></div>
+            <div class="number"><div>:</div></div>
+            <div class="number"><div>0</div></div>
+            <div class="number"><div>0</div></div>
+        </div>
+          <h2>18 Декабря 2022</h2>
+    </div>
      </div>
      <script>
-         // Устанавливаем время для обратного отчета
-         var countDownDate = new Date("Jan 1, 2023 00:00:00").getTime();
-
-         // Обновляем таймер каждую секунду
-         var countDownfunction = setInterval(function () {
-
-            // Время на данный момент
-            var now = new Date().getTime();
-
-            // Высчитываем промежуток времени между установленным временем и сегодня
-            var distance = countDownDate - now;
-
-            // Высчитываем время для дней, часов, минут и секунд
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60 )) / 1000);
-
-            // Выдаем результат на сайте
-            document.getElementById("timer").innerHTML = 
-            days + "д " + hours + "ч " + minutes + "м " + seconds + "с ";
-
-            // Что делать, когда отсчет будет равен 0
-            if (distance < 0) {
-                clearInterval(countDownfunction);
-                document.getElementById("timer").innerHTML = "С новым годом!";
-            }
-         }, 1000)
-         
+      var countDownDate = new Date("Jan 1, 2023 00:00:00").getTime();
+var last = "00:00:00:00";
+var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    var nowon = ("0" + days).slice(-2) + ":" + ("0" + hours).slice(-2) + ":" + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+    console.log(last + " " + nowon);
+    animatetime(last, nowon);
+    last = nowon;
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+function animatetime(last, nowon) {
+    for (var i = 0; i < nowon.length; i++) {
+        if (last[i] != nowon[i]) {
+            animate(i, nowon[i]);
+        }
+    }
+}
+function animate(index, number) {
+    var element = document.getElementsByClassName("number")[index];
+    var second = element.lastElementChild.cloneNode(true);
+    second.innerHTML = number;
+    element.appendChild(second);
+    element.classList.add("move");
+    setTimeout(function () {
+      element.classList.remove("move");
+    }, 500);
+    setTimeout(function () {
+        element.removeChild(element.firstElementChild);
+    }, 500);
+}  
      </script>
  </body>
 </html>
