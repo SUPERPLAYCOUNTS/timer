@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Timer new year 2023</title>
+  <style>
+      body, html {
+          height: 100%;
+          margin: 0;
+      }
+
+      .container {
+          background: url("https://superplaycounts.github.io/timer/img/rozhdestvo-novyy-god-prazdnik-3860.jpg");
+          height: 100%;
+          background-position: center;
+          background-size: cover;
+          position: relative;
+          color: white;
+      }
+
+      .center {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+      }
+
+      h1, p1 {
+          font-family: sans-serif;
+          font-weight: lighter;
+      }
+
+      h1 {
+          font-size: 50px;
+      }
+
+      p1 {
+          font-size: 30px;
+          letter-spacing: 5px;
+      }
+      h2 {
+          font-size: 30px;
+      }
+      #alternatives
+      {
+        cursor: pointer;
+      }
+  </style>
+  <link rel="icon" href="https://superplaycounts.github.io/img/icon-sites.png">
+ </head>
+ <body>
+     <div class="container">
+        <h2> <img src="https://superplaycounts.github.io/img/icon.png" width="120" height="120">SUPERPLAYCOUNTS</h2>
+        <hr>
+         <div class="center">
+             <h1>До нового года осталось</h1>
+          <h4 onclick="alternatives()" id="alternatives">Альтернативный!</h4>
+             <hr>
+             <p1 id="timer"></p1>
+         </div>
+     </div>
+     <script>
+         // Устанавливаем время для обратного отчета
+         var countDownDate = new Date("Sum 1, 2023 00:00:00").getTime();
+
+         // Обновляем таймер каждую секунду
+         var countDownfunction = setInterval(function () {
+
+            // Время на данный момент
+            var now = new Date().getTime();
+
+            // Высчитываем промежуток времени между установленным временем и сегодня
+            var distance = countDownDate - now;
+
+            // Высчитываем время для дней, часов, минут и секунд
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60 )) / 1000);
+
+            // Выдаем результат на сайте
+            document.getElementById("timer").innerHTML = 
+            days + "д " + hours + "ч " + minutes + "м " + seconds + "с ";
+
+            // Что делать, когда отсчет будет равен 0
+            if (distance < 0) {
+                clearInterval(countDownfunction);
+                document.getElementById("timer").innerHTML = "0";
+            }
+         }, 1000)
+         
+         function alternatives(){
+            document.location.assign("https://superplaycounts.github.io/timer/alternatives/new-year-2023.html");
+         }
+     </script>
+ </body>
+</html>
